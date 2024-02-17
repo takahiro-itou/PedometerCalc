@@ -6,7 +6,8 @@ $1 ~ /^[0-9][0-9][0-9][0-9]\/[0-9][0-9]\/[0-9][0-9]$/ {
     all_total=$5
     print date, count, month_total, all_total
     chk_month_total += count
-    chk_all_total += count
+    chk_all_total   += count
+    chk_range_total += count
 
     if ( month_total > 0 && chk_month_total != month_total ) {
         print "Mismatch Monthly Total ", month_total, chk_month_total, NR
@@ -15,6 +16,7 @@ $1 ~ /^[0-9][0-9][0-9][0-9]\/[0-9][0-9]\/[0-9][0-9]$/ {
         print "Mismatch Total ", all_total, chk_month_total, NR
     }
 }
+
 $1 ~ /^[0-9][0-9][0-9][0-9]\/[0-9][0-9]   $/ {
     rec_month_total=$4
     rec_all_total=$5
@@ -25,5 +27,8 @@ $1 ~ /^[0-9][0-9][0-9][0-9]\/[0-9][0-9]   $/ {
     }
     if ( rec_all_total > 0 && chk_all_total != rec_all_total ) {
         print "Mismatch Total ", chk_all_total, rec_all_total, NR
+    }
+    if ( rec_range_total == "********" ) {
+        chk_range_total = 0
     }
 }
