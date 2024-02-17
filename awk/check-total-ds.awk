@@ -4,7 +4,6 @@ $1 ~ /^[0-9][0-9][0-9][0-9]\/[0-9][0-9]\/[0-9][0-9]$/ {
     count=$3
     month_total=$4
     all_total=$5
-    print date, count, month_total, all_total
     chk_month_total += count
     chk_all_total   += count
     chk_range_total += count
