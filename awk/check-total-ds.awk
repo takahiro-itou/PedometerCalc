@@ -7,5 +7,8 @@ $1 ~ /^[0-9][0-9][0-9][0-9]\/[0-9][0-9]\/[0-9][0-9]$/ {
     print date, count, month_total, all_total
 }
 $1 ~ /^[0-9][0-9][0-9][0-9]\/[0-9][0-9]   $/ {
-    print "Month Total"
+    rec_month_total=$4
+    rec_all_total=$5
+    rec_range_total=$6
+    print "Month Total", rec_month_total, rec_all_total, rec_lim_total
 }
