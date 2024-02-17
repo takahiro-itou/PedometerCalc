@@ -19,4 +19,11 @@ $1 ~ /^[0-9][0-9][0-9][0-9]\/[0-9][0-9]   $/ {
     rec_all_total=$5
     rec_range_total=$6
     print "Month Total", rec_month_total, rec_all_total, rec_lim_total
+
+    if ( rec_month_total > 0 && chk_month_total != rec_month_total ) {
+        print "Mismatch Monthly Total ", chk_month_total, rec_month_total, NR
+    }
+    if ( rec_all_total > 0 && chk_all_total != rec_all_total ) {
+        print "Mismatch Total ", chk_all_total, rec_all_total, NR
+    }
 }
