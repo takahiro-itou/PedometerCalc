@@ -1,7 +1,7 @@
 
 function check_total_col(lineno, title, expect, actual)
 {
-    if ( actual > 0 && expect != actual ) {
+    if ( expect > 0 && actual > 0 && expect != actual ) {
         print_mismatch_line(NR, title, expect, actual);
     }
     return;
