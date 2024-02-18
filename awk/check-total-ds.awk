@@ -35,6 +35,7 @@ $1 ~ /^[0-9][0-9][0-9][0-9]\/[0-9][0-9]   $/ {
 
     check_total_col(NR, "Monthly Total", chk_month_total, rec_month_total);
     check_total_col(NR, "Total", chk_all_total, rec_all_total);
+    check_total_col(NR, "Range Total", chk_range_total, rec_range_total);
 
     if ( rec_range_total == "********" ) {
         chk_range_total = 0
