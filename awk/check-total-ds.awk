@@ -1,4 +1,12 @@
 
+function check_total_column(lineno, title, expect, actual)
+{
+    if ( actual > 0 && expect != actual ) {
+        print_mismatch_line(NR, title, expect, actual);
+    }
+    return;
+}
+
 function print_mismatch_line(lineno, title, expect, actual) {
     printf("Mismatch (Line %d) :%20s :\tExpect = %8d\tActual = %8d\n",
            lineno, title, expect, actual);
