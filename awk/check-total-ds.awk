@@ -14,10 +14,11 @@ $1 ~ /^[0-9][0-9][0-9][0-9]\/[0-9][0-9]\/[0-9][0-9]$/ {
     chk_range_total += count
 
     if ( rec_month_total > 0 && chk_month_total != rec_month_total ) {
-        print "Mismatch Monthly Total ", rec_month_total, chk_month_total, NR
+        print_mismatch_line(NR, "Monthly Total",
+                            chk_month_total, rec_month_total);
     }
     if ( rec_all_total > 0 && chk_all_total != rec_all_total ) {
-        print "Mismatch Total ", rec_all_total, chk_month_total, NR
+        print_mismatch_line(NR, "Total", chk_all_total, rec_month_total);
     }
 }
 
@@ -27,10 +28,11 @@ $1 ~ /^[0-9][0-9][0-9][0-9]\/[0-9][0-9]   $/ {
     rec_range_total = $6
 
     if ( rec_month_total > 0 && chk_month_total != rec_month_total ) {
-        print "Mismatch Monthly Total ", chk_month_total, rec_month_total, NR
+        print_mismatch_line(NR, "Monthly Total",
+                            chk_month_total, rec_month_total);
     }
     if ( rec_all_total > 0 && chk_all_total != rec_all_total ) {
-        print "Mismatch Total ", chk_all_total, rec_all_total, NR
+        print_mismatch_line(NR, "Total ", chk_all_total, rec_all_total);
     }
     if ( rec_range_total == "********" ) {
         chk_range_total = 0
