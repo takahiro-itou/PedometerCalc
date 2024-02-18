@@ -1,6 +1,6 @@
 
 function print_mismatch_line(lineno, title, expect, actual) {
-    printf("Mismatch (Line %d)\t%s\tExpect=%d\tActual=%d\n",
+    printf("Mismatch (Line %d) :%20s :\tExpect = %8d\tActual = %8d\n",
            lineno, title, expect, actual);
     return
 }
@@ -34,7 +34,7 @@ $1 ~ /^[0-9][0-9][0-9][0-9]\/[0-9][0-9]   $/ {
                             chk_month_total, rec_month_total);
     }
     if ( rec_all_total > 0 && chk_all_total != rec_all_total ) {
-        print_mismatch_line(NR, "Total ", chk_all_total, rec_all_total);
+        print_mismatch_line(NR, "Total", chk_all_total, rec_all_total);
     }
     if ( rec_range_total == "********" ) {
         chk_range_total = 0
