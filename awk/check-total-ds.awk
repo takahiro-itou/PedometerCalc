@@ -1,3 +1,8 @@
+
+function print_mismatch_line(lineno, title, expect, actual) {
+    printf("at %d:\tMismatch %s\t%d\t%d", lineno, title, expect, actual)
+}
+
 $1 ~ /^[0-9][0-9][0-9][0-9]\/[0-9][0-9]\/[0-9][0-9]$/ {
     date    = $1
     weekday = $2
