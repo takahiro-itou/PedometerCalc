@@ -30,5 +30,5 @@ $1 ~ /^[0-9][0-9][0-9][0-9]\/[0-9][0-9]   $/ {
     if ( rec_range_total == "********" ) {
         chk_range_total = 0
     }
-    month_total = 0
+    chk_month_total = 0
 }
