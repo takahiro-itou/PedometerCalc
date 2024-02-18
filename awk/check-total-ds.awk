@@ -3,7 +3,7 @@ $1 ~ /^[0-9][0-9][0-9][0-9]\/[0-9][0-9]\/[0-9][0-9]$/ {
     weekday=$2
     count=$3
     rec_month_total=$4
-    all_total=$5
+    rec_all_total=$5
     chk_month_total += count
     chk_all_total   += count
     chk_range_total += count
@@ -11,8 +11,8 @@ $1 ~ /^[0-9][0-9][0-9][0-9]\/[0-9][0-9]\/[0-9][0-9]$/ {
     if ( rec_month_total > 0 && chk_month_total != rec_month_total ) {
         print "Mismatch Monthly Total ", rec_month_total, chk_month_total, NR
     }
-    if ( all_total > 0 && chk_all_total != all_total ) {
-        print "Mismatch Total ", all_total, chk_month_total, NR
+    if ( rec_all_total > 0 && chk_all_total != rec_all_total ) {
+        print "Mismatch Total ", rec_all_total, chk_month_total, NR
     }
 }
 
