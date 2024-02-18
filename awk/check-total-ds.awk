@@ -1,6 +1,8 @@
 
 function print_mismatch_line(lineno, title, expect, actual) {
-    printf("at %d:\tMismatch %s\t%d\t%d\n", lineno, title, expect, actual);
+    printf("Mismatch (Line %d)\t%s\tExpect=%d\tActual=%d\n",
+           lineno, title, expect, actual);
+    return
 }
 
 $1 ~ /^[0-9][0-9][0-9][0-9]\/[0-9][0-9]\/[0-9][0-9]$/ {
