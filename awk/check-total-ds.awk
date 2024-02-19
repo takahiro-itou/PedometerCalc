@@ -25,7 +25,7 @@ $1 ~ /^[0-9][0-9][0-9][0-9]\/[0-9][0-9]\/[0-9][0-9]$/ {
     chk_range_total += count
 
     check_total_col(NR, "Monthly Total", chk_month_total, rec_month_total);
-    check_total_col(NR, "Total", chk_all_total, rec_all_total);
+    check_total_col(NR, "All Total", chk_all_total, rec_all_total);
 }
 
 $1 ~ /^[0-9][0-9][0-9][0-9]\/[0-9][0-9]   $/ {
@@ -34,7 +34,7 @@ $1 ~ /^[0-9][0-9][0-9][0-9]\/[0-9][0-9]   $/ {
     rec_range_total = $6
 
     check_total_col(NR, "Monthly Total", chk_month_total, rec_month_total);
-    check_total_col(NR, "Total", chk_all_total, rec_all_total);
+    check_total_col(NR, "All Total", chk_all_total, rec_all_total);
     check_total_col(NR, "Range Total", chk_range_total, rec_range_total);
 
     if ( rec_range_total == "********" ) {
