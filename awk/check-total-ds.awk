@@ -14,7 +14,7 @@ function print_mismatch_line(lineno, title, expect, actual)
     return;
 }
 
-$1 ~ /^[0-9][0-9][0-9][0-9]\/[0-9][0-9]\/[0-9][0-9]$/ {
+$1 ~ /^[0-9]{4}\/[0-9]{2}\/[0-9]{2}$/ {
     date    = $1
     weekday = $2
     count   = $3
