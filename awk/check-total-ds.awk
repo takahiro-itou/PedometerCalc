@@ -9,8 +9,8 @@ function check_total_col(lineno, title, expect, actual)
 
 function print_mismatch_line(lineno, title, expect, actual)
 {
-    printf("Mismatch (Line %6d) :%18s :\tExpect = %8d\tActual = %8d\n",
-           lineno, title, expect, actual);
+    printf("Mismatch (Line %6d) :%18s :\tExpect = %8d\tActual = %8d\t%s\n",
+           lineno, title, expect, actual, $1);
     return;
 }
 
