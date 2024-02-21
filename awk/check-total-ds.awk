@@ -28,7 +28,7 @@ $1 ~ /^[0-9]{4}\/[0-9]{2}\/[0-9]{2}$/ {
     check_total_col(NR, "All Total", chk_all_total, rec_all_total);
 }
 
-$1 ~ /^[0-9][0-9][0-9][0-9]\/[0-9][0-9]   $/ {
+$1 ~ /^[0-9]{4}\/[0-9]{2}   $/ {
     rec_month_total = $4
     rec_all_total   = $5
     rec_range_total = $6
