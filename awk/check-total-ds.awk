@@ -3,8 +3,10 @@ function check_total_col(lineno, title, expect, actual)
 {
     if ( actual > 0 && expect != actual ) {
         print_mismatch_line(NR, title, expect, actual);
+        ++ num_errors;
+        return  1;
     }
-    return;
+    return  0;
 }
 
 function print_mismatch_line(lineno, title, expect, actual)
@@ -49,4 +51,5 @@ $1 ~ /^[0-9]{4}\/[0-9]{2}   $/ {
 
 END {
     printf("# of no total data = %d\n", num_no_data);
+    printf("# of error data    = %d\n", num_errors);
 }
