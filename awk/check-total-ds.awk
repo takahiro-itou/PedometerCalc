@@ -24,6 +24,10 @@ $1 ~ /^[0-9]{4}\/[0-9]{2}\/[0-9]{2}$/ {
     chk_all_total   += count
     chk_range_total += count
 
+    if ( rec_month_total == 0 || rec_all_total == 0 ) {
+        ++ num_no_data;
+    }
+
     check_total_col(NR, "@ Monthly Total", chk_month_total, rec_month_total);
     check_total_col(NR, "@     All Total", chk_all_total, rec_all_total);
 }
@@ -41,4 +45,8 @@ $1 ~ /^[0-9]{4}\/[0-9]{2}   $/ {
         chk_range_total = 0
     }
     chk_month_total = 0
+}
+
+END {
+    printf("# of no total data = %d\n", num_no_data);
 }
