@@ -43,7 +43,7 @@ $1 ~ /^[0-9]{4}\/[0-9]{2}   $/ {
     check_total_col(NR, "#     All Total", chk_all_total, rec_all_total);
     check_total_col(NR, "#   Range Total", chk_range_total, rec_range_total);
 
-    if ( rec_range_total ~ /\*{8}$/ ) {
+    if ( rec_range_total ~ /\*{4,12}$/ ) {
         chk_range_total = 0
     }
     chk_month_total = 0
