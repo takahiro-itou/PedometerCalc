@@ -26,7 +26,8 @@ $1 ~ /^[0-9]{4}\/[0-9]{2}\/[0-9]{2}$/ {
     chk_all_total   += count
     chk_range_total += count
 
-    if ( rec_month_total == 0 || rec_all_total == 0 ) {
+    if ( rec_all_total == 0 || (rec_month_total == 0 && count != 0) ) {
+        printf("No Data (Line %6d) :%s\n", NR, $0);
         ++ num_no_data;
     }
 
@@ -46,6 +47,11 @@ $1 ~ /^[0-9]{4}\/[0-9]{2}   $/ {
     if ( rec_range_total ~ /\*{4,12}$/ ) {
         chk_range_total = 0
     }
+    if ( rec_range_total ~ /[0-9]+!$/ ) {
+        chk_range_total = rec_range_total
+        printf("Reset Range Total (Line %06d) : %d\n", NR, chk_range_total);
+    }
+
     chk_month_total = 0
 }
 
