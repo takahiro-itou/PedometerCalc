@@ -31,6 +31,11 @@ $1 ~ /^[0-9]{4}\/[0-9]{2}   $/ {
     if ( rec_range_total ~ /\*{4,12}$/ ) {
         chk_range_total = 0
     }
+    if ( rec_range_total ~ /[0-9]+!$/ ) {
+        chk_range_total = rec_range_total
+        printf("Reset Range Total (Line %06d) : %d\n", NR, chk_range_total);
+    }
+
 }
 
 END {
